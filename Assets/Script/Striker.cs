@@ -10,10 +10,11 @@ public class Striker : MonoBehaviour
 
     public bool isWall = false;
     public float speed;
-    public const float max_x = -2.8f, max_z = -5.6f, min_x = -4.4f, min_z = -7.6f;
-    public Vector3 ballPos, spawnPos, lastPosition;
+    public float max_x = -2.8f, max_z = -5.6f, min_x = -4.4f, min_z = -7.6f;
+    public Vector3 ballPos, spawnPos, lastPosition, dir;
 	public GameObject ball;
 
+    
 
     // Use this for initialization
     void Start()
@@ -66,6 +67,9 @@ public class Striker : MonoBehaviour
             transform.position = spawnPos;
 			ball.transform.position = ballPos;
 		}
+        dir = transform.position - lastPosition;
+        lastPosition = transform.position;
+
         /* mX = Input.GetAxis("Mouse X");
 		mY = Input.GetAxis("Mouse Y");
 		if (!isWall && isInside){
@@ -88,6 +92,9 @@ public class Striker : MonoBehaviour
         else
         {
             isWall = false;
+        }
+        if (col.gameObject.tag == "ball"){
+            col.gameObject.GetComponent<Rigidbody>().AddForce(dir*5000);
         }
     }
     void OnCollisionExit(Collision col)

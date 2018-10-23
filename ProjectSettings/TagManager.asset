@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Striker
   - limit
+  - ball
   layers:
   - Default
   - TransparentFX
