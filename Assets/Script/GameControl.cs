@@ -9,7 +9,7 @@ public class GameControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        spin.active = false;
+        spin.SetActive(false);
     }
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class GameControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            spin.active = true;
+            spin.SetActive(true);
         }
     }
 }
